@@ -36,16 +36,19 @@ Both showcase videos are actual screen recordings of the real live sites (Ember 
 
 The homepage demo request form submits to Formspree (`https://formspree.io/f/xaqzkkor`), not Netlify Forms — this means it is host-agnostic and will keep working unchanged regardless of where the site is deployed (Netlify, Vercel, etc).
 
-The form has an "What are you enquiring about?" select (`#f-enquiry-type`: General Website Enquiry / Free Homepage Demo / First 5 Launch Offer), included in every Formspree submission. Any element with the `.js-claim-launch` class (announcement bar, dedicated launch section) sets this select to the launch offer, pre-fills the message textarea (only if it's still empty — a visitor's own typed text is never overwritten), shows a "Launch Offer Selected" badge above the form, highlights the form border in green, and swaps the submit button label to "Claim My Launch Space". Manually choosing the option from the dropdown does exactly the same thing. Normal enquiries are completely unaffected.
+The form has an "What are you enquiring about?" select (`#f-enquiry-type`: General Website Enquiry / Free Homepage Demo / First 10 Launch Offer), included in every Formspree submission. Any element with the `.js-claim-launch` class (announcement bar, dedicated launch section) sets this select to the launch offer, pre-fills the message textarea (only if it's still empty — a visitor's own typed text is never overwritten), shows a "Launch Offer Selected" badge above the form, highlights the form border in green, reveals a required launch-terms checkbox, and swaps the submit button label to "Claim My Launch Space". Manually choosing the option from the dropdown does exactly the same thing. Normal enquiries and Free Homepage Demo enquiries are completely unaffected and never require the checkbox.
 
 ## Launch offer
 
-A limited introductory offer (first 5 businesses: £0 website setup, £29/month for hosting and ongoing support) appears in four places, all wired to the form behaviour above:
+A limited introductory offer appears in four places, all wired to the form behaviour above:
 
+- **Terms**: limited to the first 10 businesses, £0 website setup, £29/month for hosting and ongoing support, minimum six-month term. Covers a standard business website; custom booking systems, online ordering, e-commerce and advanced functionality are quoted separately. These terms are stated in full in the dedicated launch section (visible before any enquiry button is clicked), summarised in the announcement bar and hero badge, and reconfirmed via a required checkbox before a launch-offer enquiry can be submitted.
 - A dismissible announcement bar at the top of the page (`#announcementBar`) — the dismissal is remembered for the current browser session only (`sessionStorage`), not permanently
 - A small badge + supporting line near the hero CTA, linking to the dedicated section
 - A dedicated `#launch` section (in the nav) before the normal pricing section — pricing itself is unchanged
 - A launch-specific WhatsApp link with its own pre-filled message, using the same Nexora WhatsApp number as the rest of the site
+
+When the launch offer is selected, the Formspree submission also includes `launch_minimum_term` (`6 months`), `launch_capacity` (`First 10 businesses`), and — only once the visitor has checked the required terms checkbox — `launch_terms_accepted` (`Yes`). These fields are empty/omitted for non-launch enquiries.
 
 ## Deployment note
 
