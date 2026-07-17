@@ -1,0 +1,221 @@
+/* ============================================================
+   Zirofi Design System — Colors & Typography
+   Source: Zirofi Branding JSON + zirofi.co.uk
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Google Fonts import (Exo + Inter)
+   NOTE: Exo is used for headings; Inter for body/UI
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ------------------------------------------------------------
+   Base Color Tokens
+   ------------------------------------------------------------ */
+:root {
+  /* Brand greens */
+  --color-lime:          #D0FA93;   /* Primary / CTA green — electric lime */
+  --color-lime-light:    #E9F9D0;   /* Secondary / soft lime */
+  --color-lime-pale:     #F2FDE4;   /* Very light lime tint */
+  --color-forest:        #0A3D2A;   /* Deep forest green — text, nav, dark bg */
+  --color-forest-mid:    #1A5C3F;   /* Mid forest — hover states */
+  --color-forest-light:  #2E7D55;   /* Lighter forest accent */
+
+  /* Neutrals */
+  --color-bg:            #F9F9F9;   /* Page background */
+  --color-surface:       #FFFFFF;   /* Card / surface */
+  --color-surface-alt:   #F3F3F3;   /* Alternate surface */
+  --color-border:        #E4EAE2;   /* Subtle border */
+  --color-border-strong: #C8D4C4;   /* Stronger border */
+
+  /* Text */
+  --color-text-primary:  #0A3D2A;   /* Primary text = forest */
+  --color-text-secondary:#3D5C4A;   /* Muted text */
+  --color-text-tertiary: #7A9A84;   /* Placeholder / disabled */
+  --color-text-inverse:  #FFFFFF;   /* Text on dark bg */
+  --color-text-on-lime:  #0A3D2A;   /* Text on lime buttons */
+
+  /* Semantic */
+  --color-link:          #0A3D2A;
+  --color-link-hover:    #1A5C3F;
+  --color-focus-ring:    #D0FA93;
+  --color-success:       #D0FA93;
+  --color-error:         #E53E3E;
+  --color-warning:       #F6AD55;
+
+  /* Backgrounds */
+  --color-bg-dark:       #0A3D2A;   /* Dark section background */
+  --color-bg-lime:       #D0FA93;   /* Lime section background */
+  --color-bg-lime-soft:  #E9F9D0;   /* Soft lime section */
+}
+
+/* ------------------------------------------------------------
+   Typography Tokens
+   ------------------------------------------------------------ */
+:root {
+  /* Font families */
+  --font-heading: 'Exo', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-ui:      'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font weights */
+  --fw-light:     300;
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-extrabold: 800;
+  --fw-black:     900;
+
+  /* Font sizes — scale */
+  --fs-xs:   11px;
+  --fs-sm:   13px;
+  --fs-base: 15px;
+  --fs-md:   17px;
+  --fs-lg:   20px;
+  --fs-xl:   24px;
+  --fs-2xl:  32px;
+  --fs-3xl:  40px;
+  --fs-4xl:  48px;
+  --fs-5xl:  60px;
+  --fs-6xl:  72px;
+
+  /* Line heights */
+  --lh-tight:  1.1;
+  --lh-snug:   1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed:1.65;
+
+  /* Letter spacing */
+  --ls-tight:  -0.03em;
+  --ls-snug:   -0.02em;
+  --ls-normal:  0;
+  --ls-wide:    0.04em;
+  --ls-wider:   0.08em;
+  --ls-widest:  0.12em;
+}
+
+/* ------------------------------------------------------------
+   Spacing Tokens (base unit = 4px)
+   ------------------------------------------------------------ */
+:root {
+  --space-0:   0;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+  --space-24:  96px;
+  --space-32: 128px;
+
+  /* Border radius */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   15px;     /* Brand default */
+  --radius-xl:   24px;
+  --radius-pill: 100px;    /* Buttons */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs:  0 1px 2px rgba(10,61,42,0.06);
+  --shadow-sm:  0 2px 8px rgba(10,61,42,0.08);
+  --shadow-md:  0 4px 16px rgba(10,61,42,0.10);
+  --shadow-lg:  0 8px 32px rgba(10,61,42,0.12);
+  --shadow-xl:  0 16px 48px rgba(10,61,42,0.15);
+}
+
+/* ------------------------------------------------------------
+   Semantic Typography — Element Defaults
+   ------------------------------------------------------------ */
+h1, .h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-5xl);        /* 60px */
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-snug);
+  color: var(--color-text-primary);
+}
+
+h2, .h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-4xl);        /* 48px */
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+  color: var(--color-text-primary);
+}
+
+h3, .h3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-2xl);        /* 32px */
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-text-primary);
+}
+
+h4, .h4 {
+  font-family: var(--font-ui);
+  font-size: var(--fs-xl);         /* 24px */
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--color-text-primary);
+}
+
+h5, .h5 {
+  font-family: var(--font-ui);
+  font-size: var(--fs-lg);         /* 20px */
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  color: var(--color-text-primary);
+}
+
+p, .body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);       /* 15px */
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  color: var(--color-text-primary);
+}
+
+.body-sm {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);         /* 13px */
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--color-text-secondary);
+}
+
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+code, .mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background: var(--color-lime-pale);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
