@@ -634,8 +634,19 @@ body.nav-locked { position: fixed; left: 0; right: 0; overflow: hidden; }
 .project__tags { display: flex; flex-wrap: wrap; gap: 10px; margin: var(--s-6) 0; }
 .project__copy .btn { margin-top: var(--s-2); }
 
-/* Secondary card gets a contained border to read as "second" beside the open flagship */
-.project--secondary { background: var(--card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: clamp(24px, 3vw, 44px); }
+/* Consistent Nexora outer frame — same green border, glow, elevated
+   background, radius and spacing on both project cards. Each project
+   keeps its own subtle accent glow (ember warm / bobbys red) inside
+   this frame via the ::before layer above. */
+.project--flagship,
+.project--secondary {
+  background: var(--card);
+  border: 1px solid var(--border-green);
+  border-radius: var(--r-xl);
+  padding: clamp(24px, 3vw, 44px);
+  box-shadow: var(--shadow-card), var(--shadow-green);
+}
+.project--flagship::before,
 .project--secondary::before { inset: 0; border-radius: var(--r-xl); opacity: 0.5; }
 
 @media (max-width: 1000px) {
@@ -1068,4 +1079,25 @@ body.nav-locked { position: fixed; left: 0; right: 0; overflow: hidden; }
 @media (max-width: 420px) {
   .capability-strip__grid { grid-template-columns: 1fr; }
   .capability-strip__grid .divider { display: none; }
+}
+
+/* ---- Portfolio phone mock-up: keep the desktop preview as the
+   main visual on mobile — only a small controlled overlap, scoped
+   to the portfolio cards only (the hero mock-up is unaffected). ---- */
+@media (max-width: 768px) {
+  .project__visual .phone {
+    width: 26%;
+    min-width: 84px;
+    right: 3%;
+    bottom: -3%;
+  }
+}
+
+@media (max-width: 430px) {
+  .project__visual .phone {
+    width: 24%;
+    min-width: 78px;
+    right: 1%;
+    bottom: -1.5%;
+  }
 }
