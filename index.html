@@ -19,6 +19,24 @@
 <body>
 
   <!-- ========================================================
+       ANNOUNCEMENT BAR — launch offer, dismissible for the session
+       ======================================================== -->
+  <div class="announcement" id="announcementBar">
+    <div class="container announcement__inner">
+      <p class="announcement__text">
+        <span class="announcement__tag">Launch Offer</span>
+        First 5 businesses get <span class="accent">£0 website setup</span> — only <span class="accent">£29/month</span>
+      </p>
+      <div class="announcement__actions">
+        <a class="announcement__cta js-claim-launch" href="#contact">Claim a Space</a>
+        <button type="button" class="announcement__close" id="announcementClose" aria-label="Dismiss announcement">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
        HEADER  (sticky)
        ======================================================== -->
   <header class="header" id="top">
@@ -37,6 +55,7 @@
         <a href="#services">Services</a>
         <a href="#work">Work</a>
         <a href="#process">Process</a>
+        <a href="#launch">Launch Offer</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
@@ -76,6 +95,7 @@
         <li><a href="#services" tabindex="-1">Services</a></li>
         <li><a href="#work" tabindex="-1">Work</a></li>
         <li><a href="#process" tabindex="-1">Process</a></li>
+        <li><a href="#launch" tabindex="-1">Launch Offer</a></li>
         <li><a href="#pricing" tabindex="-1">Pricing</a></li>
         <li><a href="#faq" tabindex="-1">FAQ</a></li>
         <li><a href="#contact" tabindex="-1">Contact</a></li>
@@ -104,6 +124,14 @@
             <a class="btn btn--ghost btn--lg" href="#work">View Our Work</a>
           </div>
 
+          <div class="hero__launch reveal" data-delay="3">
+            <a class="hero__launch-badge" href="#launch">
+              <span class="dot" aria-hidden="true"></span>
+              Limited Launch Offer · First 5 Businesses
+            </a>
+            <p class="hero__launch-line">£0 website setup for the first 5 businesses · £29/month thereafter</p>
+          </div>
+
           <ul class="trust reveal" data-delay="4">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Mobile-first design</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Fast loading</li>
@@ -123,7 +151,7 @@
               <div class="browser__dots"><i></i><i></i><i></i></div>
               <div class="browser__url">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                ember-house-lilac.vercel.app
+                <span class="browser__url-text">ember-house-lilac.vercel.app</span>
               </div>
             </div>
             <div class="browser__viewport">
@@ -313,7 +341,7 @@
                   <div class="browser__dots"><i></i><i></i><i></i></div>
                   <div class="browser__url">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                    ember-house-lilac.vercel.app
+                    <span class="browser__url-text">ember-house-lilac.vercel.app</span>
                   </div>
                 </div>
                 <div class="browser__viewport">
@@ -361,7 +389,7 @@
                   <div class="browser__dots"><i></i><i></i><i></i></div>
                   <div class="browser__url">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                    bobbys-hair-salon.vercel.app
+                    <span class="browser__url-text">bobbys-hair-salon.vercel.app</span>
                   </div>
                 </div>
                 <div class="browser__viewport">
@@ -474,6 +502,55 @@
             <h4>We build and launch your website</h4>
             <p>We build your website, connect your domain and provide ongoing support after launch.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         LAUNCH OFFER — limited introductory offer for the first
+         five businesses. Sits before normal pricing, which stays
+         unchanged below.
+         ======================================================== -->
+    <section class="section launch" id="launch">
+      <div class="container">
+        <div class="launch__panel reveal">
+          <div class="launch__top">
+            <span class="badge">Limited launch offer</span>
+            <span class="launch__pill">Limited to the first 5 businesses</span>
+          </div>
+          <h2>Launch your website<br />with <span class="accent">£0 setup.</span></h2>
+          <p class="lead launch__copy">The first five businesses can get a professionally designed website with no upfront website setup fee. Pay only £29 per month for hosting and ongoing support.</p>
+
+          <div class="launch__stats">
+            <div class="launch__stat">
+              <span class="launch__stat-value">£0</span>
+              <span class="launch__stat-label">Website setup</span>
+            </div>
+            <span class="launch__divider" aria-hidden="true"></span>
+            <div class="launch__stat">
+              <span class="launch__stat-value">£29<small>/month</small></span>
+              <span class="launch__stat-label">Hosting and ongoing support</span>
+            </div>
+          </div>
+
+          <ul class="launch__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Limited to the first 5 businesses</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Mobile-friendly website</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Hosting included</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Ongoing support included</li>
+          </ul>
+
+          <div class="launch__actions">
+            <a class="btn btn--primary btn--lg js-claim-launch" href="#contact">Claim a Launch Space
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="launch__secondary" href="#pricing">View Normal Packages</a>
+          </div>
+
+          <a class="launch__whatsapp" href="https://wa.me/447454733492?text=Hi%2C%20I%E2%80%99ve%20seen%20Nexora%E2%80%99s%20launch%20offer%20and%20I%E2%80%99m%20interested%20in%20the%20%C2%A30%20website%20setup%20with%20%C2%A329%20per%20month%20for%20hosting%20and%20ongoing%20support." target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 00-.7.3 2.8 2.8 0 00-.9 2.1 4.9 4.9 0 001 2.6 11 11 0 004.3 3.8c.6.3 1.1.4 1.5.5a3.5 3.5 0 001.6.1 2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+            Ask About the Launch Offer
+          </a>
         </div>
       </div>
     </section>
@@ -727,6 +804,34 @@
               </div>
             </div>
           </div>
+
+          <div class="faq__item reveal">
+            <button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a-7" id="faq-q-7">
+              <span>What is included in the launch offer?</span>
+              <span class="faq__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq__a-wrap">
+              <div class="faq__a-inner">
+                <div class="faq__a" id="faq-a-7" role="region" aria-labelledby="faq-q-7">
+                  The first five businesses receive £0 website setup and pay £29 per month for hosting and ongoing support.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__item reveal">
+            <button type="button" class="faq__q" aria-expanded="false" aria-controls="faq-a-8" id="faq-q-8">
+              <span>Is the launch offer available to everyone?</span>
+              <span class="faq__q-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq__a-wrap">
+              <div class="faq__a-inner">
+                <div class="faq__a" id="faq-a-8" role="region" aria-labelledby="faq-q-8">
+                  The offer is limited to the first five businesses. Once those spaces are taken, Nexora's normal website packages will apply.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -752,6 +857,10 @@
 
           <!-- RIGHT: FORM -->
           <div class="form-card reveal" data-delay="1">
+            <div class="launch-selected-badge" id="launchOfferBadge" role="status" hidden>
+              <span class="dot" aria-hidden="true"></span>
+              Launch Offer Selected <span class="sep">·</span> £0 setup · £29/month
+            </div>
             <!-- =====================================================
                  FORM INTEGRATION
                  This form submits to Formspree (action below), which
@@ -761,6 +870,17 @@
                  script.js validates the fields, then submits via fetch.
                  ===================================================== -->
             <form id="contactForm" action="https://formspree.io/f/xaqzkkor" method="POST" novalidate>
+              <div class="field field--full">
+                <label for="f-enquiry-type">What are you enquiring about?</label>
+                <select id="f-enquiry-type" name="enquiry_type">
+                  <option value="General Website Enquiry" selected>General Website Enquiry</option>
+                  <option value="Free Homepage Demo">Free Homepage Demo</option>
+                  <option value="Launch Offer — £0 setup / £29 per month">First 5 Launch Offer</option>
+                </select>
+              </div>
+
+              <hr class="form-divider" />
+
               <p class="form-section-label">Required details</p>
               <div class="form-grid">
                 <div class="field">
@@ -848,7 +968,8 @@
               </div>
 
               <div class="form-actions">
-                <button type="submit" class="btn btn--primary btn--lg">Get My Free Homepage Demo
+                <button type="submit" class="btn btn--primary btn--lg">
+                  <span class="btn-label">Get My Free Homepage Demo</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                 </button>
                 <a class="btn btn--whatsapp btn--lg" href="https://wa.me/447454733492?text=Hi%2C%20I%E2%80%99ve%20had%20a%20look%20at%20your%20website%20and%20I%E2%80%99m%20interested%20in%20getting%20a%20free%20homepage%20demo%20for%20my%20business." target="_blank" rel="noopener noreferrer">

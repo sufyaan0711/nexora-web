@@ -9,6 +9,8 @@
    6. FAQ accordion
    7. Free Homepage Demo form validation + submit
    8. Current year in the footer
+   9. Announcement bar dismiss (session-only)
+   10. Launch offer selection (badge, form highlight, prefill, submit label)
    ============================================================ */
 (function () {
   'use strict';
@@ -361,4 +363,78 @@
      -------------------------------------------------------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* --------------------------------------------------------
+     9. Announcement bar — dismissible for the current browser
+        session only (sessionStorage, not persisted long-term).
+     -------------------------------------------------------- */
+  var ANNOUNCEMENT_KEY = 'nexoraAnnouncementDismissed';
+  var announcementBar = document.getElementById('announcementBar');
+  if (announcementBar) {
+    var announcementDismissed = false;
+    try { announcementDismissed = sessionStorage.getItem(ANNOUNCEMENT_KEY) === '1'; } catch (e) { /* privacy mode — ignore */ }
+
+    if (announcementDismissed) {
+      announcementBar.remove();
+    } else {
+      var announcementClose = document.getElementById('announcementClose');
+      if (announcementClose) {
+        announcementClose.addEventListener('click', function () {
+          announcementBar.remove();
+          try { sessionStorage.setItem(ANNOUNCEMENT_KEY, '1'); } catch (e) { /* privacy mode — ignore */ }
+        });
+      }
+    }
+  }
+
+  /* --------------------------------------------------------
+     10. Launch offer selection
+        Every "Claim a launch space"-style CTA (announcement bar,
+        dedicated launch section) sets the enquiry-type select to
+        the launch offer and pre-fills the message textarea — but
+        only if the visitor hasn't already typed something there.
+        A single change handler on the select keeps the selected-
+        offer badge, form highlight and submit-button label in
+        sync, so manually choosing the option in the dropdown
+        behaves identically to clicking a CTA.
+     -------------------------------------------------------- */
+  var enquirySelect = document.getElementById('f-enquiry-type');
+  var launchBadge = document.getElementById('launchOfferBadge');
+  var formCardEl = document.querySelector('.form-card');
+  var submitLabelEl = document.querySelector('#contactForm button[type="submit"] .btn-label');
+  var improveField = document.getElementById('f-improve');
+
+  var LAUNCH_VALUE = 'Launch Offer — £0 setup / £29 per month';
+  var DEFAULT_SUBMIT_LABEL = submitLabelEl ? submitLabelEl.textContent : '';
+  var LAUNCH_SUBMIT_LABEL = 'Claim My Launch Space';
+  var LAUNCH_PREFILL = 'Hi, I’m interested in the First 5 Launch Offer with £0 website setup and £29 per month for hosting and ongoing support. My business is: ';
+
+  function syncLaunchOfferUI() {
+    if (!enquirySelect) return;
+    var isLaunch = enquirySelect.value === LAUNCH_VALUE;
+    if (formCardEl) formCardEl.classList.toggle('is-launch-selected', isLaunch);
+    if (launchBadge) launchBadge.hidden = !isLaunch;
+    if (submitLabelEl) submitLabelEl.textContent = isLaunch ? LAUNCH_SUBMIT_LABEL : DEFAULT_SUBMIT_LABEL;
+    // Only prefill if the visitor hasn't already typed their own message —
+    // never overwrite text they've entered. Applies whether the launch
+    // offer was selected via a CTA click or the dropdown itself.
+    if (isLaunch && improveField && improveField.value.trim() === '') {
+      improveField.value = LAUNCH_PREFILL;
+    }
+  }
+
+  function selectLaunchOffer() {
+    if (!enquirySelect) return;
+    enquirySelect.value = LAUNCH_VALUE;
+    syncLaunchOfferUI();
+  }
+
+  if (enquirySelect) {
+    enquirySelect.addEventListener('change', syncLaunchOfferUI);
+    syncLaunchOfferUI();
+  }
+
+  document.querySelectorAll('.js-claim-launch').forEach(function (el) {
+    el.addEventListener('click', selectLaunchOffer);
+  });
 })();
