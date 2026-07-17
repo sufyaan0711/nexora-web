@@ -284,12 +284,16 @@
 
   function validateField(input) {
     var field = getField(input);
-    var value = (input.value || '').trim();
     var ok = true;
 
-    if (input.hasAttribute('required') && value === '') ok = false;
-    else if (input.type === 'email' && value !== '' && !emailRe.test(value)) ok = false;
-    else if (input.type === 'tel' && value !== '' && !phoneRe.test(value)) ok = false;
+    if (input.type === 'checkbox') {
+      if (input.hasAttribute('required') && !input.checked) ok = false;
+    } else {
+      var value = (input.value || '').trim();
+      if (input.hasAttribute('required') && value === '') ok = false;
+      else if (input.type === 'email' && value !== '' && !emailRe.test(value)) ok = false;
+      else if (input.type === 'tel' && value !== '' && !phoneRe.test(value)) ok = false;
+    }
 
     field.classList.toggle('has-error', !ok);
     return ok;
@@ -403,11 +407,17 @@
   var formCardEl = document.querySelector('.form-card');
   var submitLabelEl = document.querySelector('#contactForm button[type="submit"] .btn-label');
   var improveField = document.getElementById('f-improve');
+  var launchTermsField = document.getElementById('launchTermsField');
+  var launchTermsCheckbox = document.getElementById('f-launch-terms');
+  var launchTermInput = document.getElementById('f-launch-term');
+  var launchCapacityInput = document.getElementById('f-launch-capacity');
 
-  var LAUNCH_VALUE = 'Launch Offer — £0 setup / £29 per month';
+  var LAUNCH_VALUE = 'Launch Offer — First 10 Businesses — £0 setup / £29 per month / 6-month minimum';
   var DEFAULT_SUBMIT_LABEL = submitLabelEl ? submitLabelEl.textContent : '';
   var LAUNCH_SUBMIT_LABEL = 'Claim My Launch Space';
-  var LAUNCH_PREFILL = 'Hi, I’m interested in the First 5 Launch Offer with £0 website setup and £29 per month for hosting and ongoing support. My business is: ';
+  var LAUNCH_PREFILL = 'Hi, I’m interested in the First 10 Launch Offer with £0 website setup and £29 per month for hosting and ongoing support. I understand that this is for a standard business website with a minimum six-month term, and that custom booking systems, online ordering, e-commerce and advanced features are quoted separately. My business is: ';
+  var LAUNCH_MIN_TERM = '6 months';
+  var LAUNCH_CAPACITY = 'First 10 businesses';
 
   function syncLaunchOfferUI() {
     if (!enquirySelect) return;
@@ -415,9 +425,29 @@
     if (formCardEl) formCardEl.classList.toggle('is-launch-selected', isLaunch);
     if (launchBadge) launchBadge.hidden = !isLaunch;
     if (submitLabelEl) submitLabelEl.textContent = isLaunch ? LAUNCH_SUBMIT_LABEL : DEFAULT_SUBMIT_LABEL;
+
+    if (launchTermInput) launchTermInput.value = isLaunch ? LAUNCH_MIN_TERM : '';
+    if (launchCapacityInput) launchCapacityInput.value = isLaunch ? LAUNCH_CAPACITY : '';
+
+    if (launchTermsField) {
+      launchTermsField.hidden = !isLaunch;
+      if (launchTermsCheckbox) {
+        if (isLaunch) {
+          launchTermsCheckbox.setAttribute('required', '');
+        } else {
+          launchTermsCheckbox.removeAttribute('required');
+          // Reset so an unrelated enquiry never silently carries a stale
+          // "terms accepted" value from an earlier launch-offer selection.
+          launchTermsCheckbox.checked = false;
+          launchTermsField.classList.remove('has-error');
+        }
+      }
+    }
+
     // Only prefill if the visitor hasn't already typed their own message —
     // never overwrite text they've entered. Applies whether the launch
-    // offer was selected via a CTA click or the dropdown itself.
+    // offer was selected via a CTA click or the dropdown itself, and is
+    // safe to call repeatedly (a non-empty field is simply left alone).
     if (isLaunch && improveField && improveField.value.trim() === '') {
       improveField.value = LAUNCH_PREFILL;
     }
