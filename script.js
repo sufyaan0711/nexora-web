@@ -2,14 +2,18 @@
    Nexora Web — script.js
    Vanilla JS, no frameworks. Handles:
    1. Sticky header scrolled state
-   2. Mobile hamburger navigation
+   2. Mobile navigation overlay (open/close, focus trap, scroll lock)
    3. Active nav highlighting (scrollspy)
    4. Reveal-on-scroll animations
-   5. Free Website Review form validation + submit
-   6. Current year in the footer
+   5. Portfolio video playback (IntersectionObserver)
+   6. FAQ accordion
+   7. Free Homepage Demo form validation + submit
+   8. Current year in the footer
    ============================================================ */
 (function () {
   'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* --------------------------------------------------------
      1. Sticky header — add a border once the page scrolls
@@ -23,30 +27,114 @@
   onScroll();
 
   /* --------------------------------------------------------
-     2. Mobile hamburger navigation
+     2. Mobile navigation overlay
+        A true fixed full-viewport panel, direct child of <body>.
+        Handles: open/close, focus trap, Escape, resize-to-desktop,
+        iOS-safe scroll locking that restores exact scroll position.
      -------------------------------------------------------- */
   var burger = document.getElementById('burger');
   var mobileNav = document.getElementById('mobileNav');
+  var mobileNavClose = document.getElementById('mobileNavClose');
+  var lockedScrollY = 0;
 
-  function closeMenu() {
+  function getFocusable(container) {
+    return Array.prototype.slice.call(
+      container.querySelectorAll('a[href], button:not([disabled])')
+    );
+  }
+
+  function setMobileNavFocusable(enabled) {
+    // Links are tabindex="-1" while the menu is closed so they never
+    // steal keyboard focus from the rest of the page.
+    getFocusable(mobileNav).forEach(function (el) {
+      if (enabled) el.removeAttribute('tabindex');
+      else el.setAttribute('tabindex', '-1');
+    });
+  }
+
+  function lockScroll() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.top = -lockedScrollY + 'px';
+    document.body.classList.add('nav-locked');
+  }
+
+  function unlockScroll() {
+    document.body.classList.remove('nav-locked');
+    document.body.style.top = '';
+    // Force a synchronous reflow so the browser has recomputed the page's
+    // restored (unlocked) scrollable height before we jump — otherwise the
+    // scrollTo below can race the layout and land short of the target.
+    // eslint-disable-next-line no-unused-expressions
+    document.body.offsetHeight;
+    // Force an instant jump — html{scroll-behavior:smooth} would otherwise
+    // animate this restore, visibly scrolling the page after the menu closes.
+    window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
+  }
+
+  function openMenu() {
+    burger.classList.add('is-open');
+    mobileNav.classList.add('is-open');
+    burger.setAttribute('aria-expanded', 'true');
+    mobileNav.removeAttribute('aria-hidden');
+    setMobileNavFocusable(true);
+    lockScroll();
+    // Move focus into the panel for keyboard/screen-reader users.
+    mobileNavClose.focus({ preventScroll: true });
+    document.addEventListener('keydown', onMenuKeydown);
+  }
+
+  function closeMenu(opts) {
+    var restoreFocus = !opts || opts.restoreFocus !== false;
     burger.classList.remove('is-open');
     mobileNav.classList.remove('is-open');
     burger.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    setMobileNavFocusable(false);
+    unlockScroll();
+    document.removeEventListener('keydown', onMenuKeydown);
+    if (restoreFocus) burger.focus({ preventScroll: true });
   }
+
+  function isMenuOpen() {
+    return mobileNav.classList.contains('is-open');
+  }
+
   function toggleMenu() {
-    var open = burger.classList.toggle('is-open');
-    mobileNav.classList.toggle('is-open', open);
-    burger.setAttribute('aria-expanded', String(open));
+    if (isMenuOpen()) closeMenu();
+    else openMenu();
   }
+
+  function onMenuKeydown(e) {
+    if (e.key === 'Escape') {
+      closeMenu();
+      return;
+    }
+    if (e.key !== 'Tab') return;
+    // Simple focus trap: cycle within the panel's focusable elements.
+    var focusable = getFocusable(mobileNav);
+    if (!focusable.length) return;
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   burger.addEventListener('click', toggleMenu);
-  // Close the menu after tapping any link inside it
+  mobileNavClose.addEventListener('click', function () { closeMenu(); });
   mobileNav.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', closeMenu);
+    a.addEventListener('click', function () { closeMenu({ restoreFocus: false }); });
   });
-  // Close on Escape
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenu();
+  // Close automatically if the viewport grows back to desktop width.
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900 && isMenuOpen()) closeMenu({ restoreFocus: false });
   });
+  // Start fully closed / non-focusable.
+  setMobileNavFocusable(false);
 
   /* --------------------------------------------------------
      3. Active nav highlighting (scrollspy)
@@ -86,14 +174,12 @@
           (so nothing can ever get stuck hidden)
      -------------------------------------------------------- */
   var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var firstRun = true;
 
   function forceVisible(el) {
     el.style.transition = 'none';
     el.classList.add('in');
     el.style.opacity = '1';
-    el.style.transform = 'none';
   }
 
   function revealCheck() {
@@ -109,7 +195,7 @@
           // Entering on scroll — let CSS animate it, with a fallback
           el.classList.add('in');
           (function (node) {
-            setTimeout(function () { node.style.transition = 'none'; node.style.opacity = '1'; node.style.transform = 'none'; }, 600);
+            setTimeout(function () { node.style.transition = 'none'; node.style.opacity = '1'; }, 600);
           })(el);
         }
         reveals.splice(i, 1);
@@ -129,11 +215,65 @@
   }, 1500);
 
   /* --------------------------------------------------------
-     5. Free Website Review form — validation + submit
+     5. Portfolio video playback control
+        Both showcase videos autoplay muted/looped/inline, but we
+        only let them actually play near the viewport, and pause
+        them once they scroll well away — keeps scrolling smooth
+        and avoids two videos decoding at full power off-screen.
+        If autoplay is blocked by the browser, the poster image
+        (set in HTML) simply stays visible — no broken UI.
+     -------------------------------------------------------- */
+  var videos = Array.prototype.slice.call(document.querySelectorAll('.js-video'));
+  if (videos.length) {
+    if ('IntersectionObserver' in window) {
+      var videoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var video = entry.target;
+          if (entry.isIntersecting) {
+            var playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+              playPromise.catch(function () { /* autoplay blocked — poster stays visible */ });
+            }
+          } else {
+            video.pause();
+          }
+        });
+      }, { rootMargin: '200px 0px', threshold: 0.01 });
+      videos.forEach(function (v) { videoObserver.observe(v); });
+    } else {
+      // No IntersectionObserver support — attempt a single play and
+      // let the poster carry the UI if it fails.
+      videos.forEach(function (v) {
+        var p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(function () {});
+      });
+    }
+  }
+
+  /* --------------------------------------------------------
+     6. FAQ accordion
+        Each item opens/closes independently. Height animation is
+        handled entirely in CSS via a 0fr/1fr grid-template-rows
+        transition, so there is no JS height measurement and no
+        overflow:hidden on any ancestor section.
+     -------------------------------------------------------- */
+  var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq__item'));
+  faqItems.forEach(function (item) {
+    var btn = item.querySelector('.faq__q');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('is-open');
+      item.classList.toggle('is-open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  /* --------------------------------------------------------
+     7. Free Homepage Demo form — validation + submit
         Front-end validation only. The success message is
         shown ONLY after a successful submit.
      -------------------------------------------------------- */
-  var form = document.getElementById('reviewForm');
+  var form = document.getElementById('contactForm');
   var success = document.getElementById('formSuccess');
   var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var phoneRe = /^[0-9 +()\-]{7,}$/;
@@ -217,7 +357,7 @@
   }
 
   /* --------------------------------------------------------
-     6. Current year in the footer
+     8. Current year in the footer
      -------------------------------------------------------- */
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
