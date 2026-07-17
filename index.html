@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexora Web — Websites for Local Restaurants, Takeaways &amp; Small Businesses</title>
+  <meta name="description" content="Nexora Web designs clean, mobile-friendly websites for restaurants, takeaways and local businesses — making it easier for customers to call, order, book and find you online." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========================================================
+       HEADER  (sticky)
+       ======================================================== -->
+  <header class="header" id="top">
+    <div class="container">
+      <a class="logo" href="#top" aria-label="Nexora Web home">
+        <!-- N mark — bold N with a small green accent, echoing the Nexora logo -->
+        <svg class="logo__mark" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+          <rect x="0.5" y="0.5" width="29" height="29" rx="8" fill="#0d100e" stroke="rgba(255,255,255,0.12)"/>
+          <path d="M9 21V9l8 8.5V9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="20.5" cy="20.5" r="2" fill="#2ee57e"/>
+        </svg>
+        <span>Nexora Web<span class="dot">.</span></span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#review">Website Review</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header__cta">
+        <a class="btn btn--outline" href="#review">Get a Free Website Review</a>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile navigation panel -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#review">Website Review</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn--primary btn--block" href="#review">Get a Free Website Review</a>
+  </nav>
+
+  <main>
+    <!-- ========================================================
+         HERO
+         ======================================================== -->
+    <section class="hero grid-bg">
+      <span class="hero__glow" aria-hidden="true"></span>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="badge reveal">Websites for local businesses</span>
+          <h1 class="reveal" data-delay="1">Websites that help local businesses look better and <span class="accent">win more customers.</span></h1>
+          <p class="lead reveal" data-delay="2">Nexora Web creates clean, mobile-friendly websites for restaurants, takeaways and local businesses, making it easier for customers to call, order, book and find you online.</p>
+
+          <div class="hero__actions reveal" data-delay="3">
+            <a class="btn btn--primary btn--lg" href="#work">View Our Work
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#review">Get a Free Website Review</a>
+          </div>
+
+          <ul class="trust reveal" data-delay="4">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Mobile-first design</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Clear pricing</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Built for local businesses</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Ongoing support</li>
+          </ul>
+        </div>
+
+        <!-- Browser + phone mock-up showing the Spice Grill demo.
+             SWAP THE IMAGES: replace images/spice-grill-desktop.png and
+             images/spice-grill-mobile.png with your own screenshots. -->
+        <div class="mock reveal" data-delay="2">
+          <span class="mock__label mock__label--live">Live demo</span>
+          <div class="browser">
+            <div class="browser__bar">
+              <div class="browser__dots"><i></i><i></i><i></i></div>
+              <div class="browser__url">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                spice-grill-demo.netlify.app
+              </div>
+            </div>
+            <img class="browser__shot" src="images/spice-grill-desktop.png" alt="Spice Grill restaurant website — desktop preview" width="1919" height="945" />
+          </div>
+
+          <div class="phone" aria-hidden="true">
+            <span class="mock__label mock__label--mobile">Mobile friendly</span>
+            <div class="phone__frame">
+              <div class="phone__screen">
+                <span class="phone__notch"></span>
+                <img src="images/spice-grill-mobile.png" alt="" width="430" height="945" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         BENEFITS STRIP
+         ======================================================== -->
+    <section class="benefits section--tight">
+      <div class="container">
+        <div class="benefits__grid">
+          <div class="benefit reveal">
+            <div class="benefit__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+            <h4>Mobile Friendly</h4>
+            <p>Designed for phones, tablets and desktops.</p>
+          </div>
+          <div class="benefit reveal" data-delay="1">
+            <div class="benefit__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v9.5l2.5-2 1.8 4 2-1-1.8-3.9H17z"/><path d="M5 5l1 1M5 12H4M7.5 8.5L6 10"/></svg></div>
+            <h4>Clear Call to Action</h4>
+            <p>Make it easier for customers to call, book or order.</p>
+          </div>
+          <div class="benefit reveal" data-delay="2">
+            <div class="benefit__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+            <h4>Fast Loading</h4>
+            <p>Lightweight websites built for performance.</p>
+          </div>
+          <div class="benefit reveal" data-delay="3">
+            <div class="benefit__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <h4>Modern Design</h4>
+            <p>Professional layouts tailored to the business.</p>
+          </div>
+          <div class="benefit reveal" data-delay="4">
+            <div class="benefit__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0116 0v4a2 2 0 01-2 2h-1v-6h3"/><path d="M4 13v4a2 2 0 002 2h1v-6H4"/></svg></div>
+            <h4>Local Support</h4>
+            <p>Direct help without a large agency.</p>
+          </div>
+          <div class="benefit reveal" data-delay="5">
+            <div class="benefit__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3-6.7L21 8"/><path d="M21 4v4h-4"/></svg></div>
+            <h4>Easy Updates</h4>
+            <p>Menus, offers and business details can be updated.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PROBLEM
+         ======================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="head reveal">
+          <span class="badge">The problem</span>
+          <h2>An outdated website could be <span class="accent">costing you customers.</span></h2>
+          <p class="lead">Most customers check a business online before calling, visiting or ordering. A slow, outdated or confusing website can send them straight to a competitor.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="icon-tile icon-tile--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M9 7l6 6M15 7l-6 6"/></svg></div>
+            <h3>Poor mobile experience</h3>
+            <p>Tiny text, broken layouts and difficult menus frustrate customers.</p>
+          </article>
+          <article class="card reveal" data-delay="1">
+            <div class="icon-tile icon-tile--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/><path d="M4 20h6M4 4h6" opacity="0.5"/></svg></div>
+            <h3>No clear next step</h3>
+            <p>Customers cannot easily call, order, book or find directions.</p>
+          </article>
+          <article class="card reveal" data-delay="2">
+            <div class="icon-tile icon-tile--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3>Outdated first impression</h3>
+            <p>An old website can make a good business look less trustworthy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SERVICES
+         ======================================================== -->
+    <section class="section section--soft" id="services">
+      <div class="container">
+        <div class="head reveal">
+          <span class="badge">What we build</span>
+          <h2>Everything your business <span class="accent">website needs.</span></h2>
+        </div>
+
+        <div class="grid-2">
+          <!-- Business Websites -->
+          <article class="card service reveal">
+            <div class="service__head">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></div>
+            </div>
+            <h3>Business Websites</h3>
+            <p>Clean, responsive websites designed around your services and customers.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Home page</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Services</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Contact details</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Maps</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Calls to action</li>
+            </ul>
+          </article>
+
+          <!-- Restaurant & Takeaway -->
+          <article class="card service reveal" data-delay="1">
+            <div class="service__head">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v8a2 2 0 002 2v8M9 3v6M5 3v6M19 3c-1.5 0-3 1.5-3 5 0 2 1 3 2 3v8"/></svg></div>
+            </div>
+            <h3>Restaurant and Takeaway Websites</h3>
+            <p>Digital menus, offers, opening hours, directions and ordering links.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Digital menu</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Food gallery</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Opening times</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>WhatsApp</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Order buttons</li>
+            </ul>
+          </article>
+
+          <!-- Direct Ordering -->
+          <article class="card service reveal" data-delay="2">
+            <div class="service__head">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h15l-1.5 9.5A2 2 0 0116.5 18h-8a2 2 0 01-2-1.6L4 4H2"/><circle cx="9" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg></div>
+            </div>
+            <h3>Ordering Integrations</h3>
+            <p>Connect your website to your existing ordering provider and make it easier for customers to place orders.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Just Eat, Uber Eats or Foodhub links</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Clear order buttons</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Collection links</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Mobile-friendly ordering journey</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Third-party integrations</li>
+            </ul>
+          </article>
+
+          <!-- Online Payments -->
+          <article class="card service reveal" data-delay="3">
+            <div class="service__head">
+              <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20M6 15h4"/></svg></div>
+            </div>
+            <h3>Custom Functionality</h3>
+            <p>Advanced ordering, payment, booking and business requirements can be discussed and quoted separately.</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Booking integrations</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Advanced forms</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Custom workflows</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Payment integrations</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Multi-location requirements</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PORTFOLIO / WORK
+         ======================================================== -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="head reveal">
+          <span class="badge">Our work</span>
+          <h2>Built to make local businesses <span class="accent">stand out.</span></h2>
+        </div>
+
+        <div class="portfolio portfolio__layout">
+          <!-- VISUAL: desktop browser + layered phone -->
+          <div class="portfolio__visual mock reveal">
+            <span class="mock__label mock__label--live">Live demo</span>
+            <div class="browser">
+              <div class="browser__bar">
+                <div class="browser__dots"><i></i><i></i><i></i></div>
+                <div class="browser__url">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                  spice-grill-demo.netlify.app
+                </div>
+              </div>
+              <!-- SWAP: replace with your Spice Grill desktop screenshot -->
+              <img class="browser__shot" src="images/spice-grill-menu.png" alt="Spice Grill — menu and ordering screenshot" width="1919" height="945" />
+            </div>
+            <div class="phone" aria-hidden="true">
+              <span class="mock__label mock__label--mobile">Mobile friendly</span>
+              <div class="phone__frame">
+                <div class="phone__screen">
+                  <span class="phone__notch"></span>
+                  <!-- SWAP: replace with your Spice Grill mobile screenshot -->
+                  <img src="images/spice-grill-mobile.png" alt="" width="430" height="945" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COPY -->
+          <div class="portfolio__copy reveal" data-delay="1">
+            <h3>Spice Grill — Restaurant Website Demo</h3>
+            <p>A modern restaurant website featuring a digital menu, offers, food gallery, opening times, directions, contact options and clear order buttons.</p>
+
+            <div class="portfolio__tags">
+              <span class="tag">Restaurant website</span>
+              <span class="tag">Mobile friendly</span>
+              <span class="tag">Digital menu</span>
+              <span class="tag">Ordering ready</span>
+            </div>
+
+            <!-- The live demo link. Currently points to the Spice Grill Netlify site. -->
+            <a class="btn btn--primary btn--lg" href="https://spice-grill-demo.netlify.app/" target="_blank" rel="noopener">
+              View Live Demo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+
+            <p class="portfolio__note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+              Spice Grill is a fictional demonstration project created for portfolio purposes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         BEFORE & AFTER
+         ======================================================== -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="head head--center reveal">
+          <span class="badge">The difference</span>
+          <h2>From outdated and confusing to <span class="accent">clear and professional.</span></h2>
+        </div>
+
+        <div class="compare">
+          <div class="compare__col compare__col--before reveal">
+            <div class="compare__title"><span class="pin pin--bad">Before</span></div>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Difficult mobile menu</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Hidden phone number</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Old design</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>Slow navigation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>No clear order button</li>
+            </ul>
+          </div>
+          <div class="compare__col compare__col--after reveal" data-delay="1">
+            <div class="compare__title"><span class="pin pin--good">After</span></div>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Mobile-first layout</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Click-to-call</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Digital menu</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Clear order buttons</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Modern professional appearance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PROCESS
+         ======================================================== -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="head head--center reveal">
+          <span class="badge">How it works</span>
+          <h2>A simple process from <span class="accent">idea to launch.</span></h2>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step__num">01</div>
+            <span class="step__tag">Free website review</span>
+            <h4>Free website review</h4>
+            <p>We review your existing website or online presence and identify practical improvements.</p>
+          </div>
+          <div class="step reveal" data-delay="1">
+            <div class="step__num">02</div>
+            <span class="step__tag">Planning</span>
+            <h4>Planning</h4>
+            <p>We agree on the pages, design, content and features your business needs.</p>
+          </div>
+          <div class="step reveal" data-delay="2">
+            <div class="step__num">03</div>
+            <span class="step__tag">Design &amp; build</span>
+            <h4>Design and build</h4>
+            <p>We build your website and complete the agreed revisions.</p>
+          </div>
+          <div class="step reveal" data-delay="3">
+            <div class="step__num">04</div>
+            <span class="step__tag">Launch &amp; support</span>
+            <h4>Launch and support</h4>
+            <p>We connect your domain, launch the website and provide ongoing support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PRICING
+         ======================================================== -->
+    <section class="section section--soft" id="pricing">
+      <div class="container">
+        <div class="head head--center reveal">
+          <span class="badge">Clear pricing</span>
+          <h2>Choose the right website <span class="accent">for your business.</span></h2>
+        </div>
+
+        <div class="pricing">
+          <!-- Essential Website -->
+          <article class="price reveal">
+            <div class="price__name">Essential Website</div>
+            <p class="price__desc">Best for businesses that need a professional online presence.</p>
+            <div class="price__amount"><span class="from">Launch price</span><span class="num">£299</span></div>
+            <hr />
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Mobile-friendly design</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Home page</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Menu or services section</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Gallery</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Contact section</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Opening times</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Google Maps</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Click-to-call</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>WhatsApp button</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Existing ordering-platform links</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Basic SEO setup</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Domain connection</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Two revision rounds</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="#review">Request a Quote</a>
+          </article>
+
+          <!-- Business Plus (popular) -->
+          <article class="price price--popular reveal" data-delay="1">
+            <span class="price__flag">Most Popular</span>
+            <div class="price__name">Business Plus</div>
+            <p class="price__desc">For growing businesses that need a larger, more tailored website.</p>
+            <div class="price__amount"><span class="from">Launch price</span><span class="num">£499</span></div>
+            <hr />
+            <p class="price__incl">Everything in Essential, plus</p>
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Larger website</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Additional pages or sections</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Full menu or service entry</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Custom offers section</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Booking or enquiry form</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Additional design customisation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Google Business Profile improvements</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Three revision rounds</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Priority launch support</li>
+            </ul>
+            <a class="btn btn--primary btn--block" href="#review">Discuss Your Requirements</a>
+          </article>
+
+          <!-- Custom Website -->
+          <article class="price reveal" data-delay="2">
+            <div class="price__name">Custom Website</div>
+            <p class="price__desc">For larger or more complex requirements that need a bespoke build.</p>
+            <div class="price__amount"><span class="from">From</span><span class="num">£799</span></div>
+            <hr />
+            <ul class="feature-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Advanced forms</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Booking integrations</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Multiple business locations</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Existing third-party ordering integrations</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Larger content requirements</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Custom functionality</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="#review">Book a Consultation</a>
+          </article>
+        </div>
+
+        <div class="fineprint reveal">
+          <p><span class="strong">Direct ordering and online payment systems are available by custom quotation.</span></p>
+          <p>Monthly website care plans are available from £29 per month. Domains, payment-provider fees and paid third-party tools may be charged separately.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         WEBSITE CARE
+         ======================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="care">
+          <div class="reveal">
+            <span class="badge">Ongoing support</span>
+            <h2 style="margin-top:20px;">We help keep your website <span class="accent">running smoothly.</span></h2>
+            <div class="care__price">£29<span> / month</span></div>
+            <p style="margin-top:6px;">Your £29 monthly care plan includes up to 30 minutes of minor content updates per month. Unused time does not roll over.</p>
+          </div>
+
+          <div class="reveal" data-delay="1">
+            <ul class="care__list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Managed hosting</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Domain &amp; HTTPS monitoring</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Small content updates</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Menu and price changes</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Basic backups</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Technical support</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Minor bug fixes</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Image optimisation</li>
+            </ul>
+            <p class="care__note">Domain renewals, paid third-party services, new pages, major redesigns and new functionality are charged separately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PHOTOGRAPHY & CONTENT
+         ======================================================== -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="head reveal">
+          <span class="badge">Content options</span>
+          <h2>Make your business look as good online <span class="accent">as it does in person.</span></h2>
+          <p class="lead">Use your existing images, suitable licensed stock photography, or choose an optional on-site content package.</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card content-opt reveal">
+            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M21 16l-5-5L5 20"/></svg></div>
+            <h3>Existing Business Images</h3>
+            <span class="price-pill included">Included</span>
+            <p>We optimise and add suitable high-quality images that your business already owns.</p>
+          </article>
+          <article class="card content-opt reveal" data-delay="1">
+            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H4z"/><path d="M4 16l5-5 4 4 2-2 5 5"/><path d="M3 20h18"/></svg></div>
+            <h3>Suitable Licensed Stock Images</h3>
+            <span class="price-pill included">Included</span>
+            <p>We include suitable royalty-free stock images chosen to match your website design.</p>
+          </article>
+          <article class="card content-opt reveal" data-delay="2">
+            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M8.5 13L7 21l5-3 5 3-1.5-8"/></svg></div>
+            <h3>Premium Paid Stock Licences</h3>
+            <span class="price-pill">Charged at cost</span>
+            <p>Need a specific premium image? We source it and pass on the licence fee at cost.</p>
+          </article>
+          <article class="card content-opt reveal" data-delay="3">
+            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3-3h5l1.5 2H21v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+            <h3>On-Site Content Photography</h3>
+            <span class="price-pill">From £149</span>
+            <p>Our content creator visits your business to capture your real food, premises and atmosphere.</p>
+          </article>
+        </div>
+        <div class="fineprint reveal">
+          <p>Photography packages can also include short-form content for Instagram and TikTok.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FREE WEBSITE REVIEW (form)
+         ======================================================== -->
+    <section class="section" id="review">
+      <div class="container">
+        <div class="review">
+          <!-- LEFT -->
+          <div class="reveal">
+            <span class="badge">Free website review</span>
+            <h2 style="margin-top:20px;">Find out how your <span class="accent">online presence</span> could be improved.</h2>
+            <p class="lead" style="margin-top:20px;">We'll review your current website or social pages and identify practical improvements to the mobile design, customer journey, menu, contact options and overall appearance.</p>
+            <ul class="review__benefits">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>No commitment</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Practical feedback</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Direct response</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Tailored to your business</li>
+            </ul>
+          </div>
+
+          <!-- RIGHT: FORM -->
+          <div class="form-card reveal" data-delay="1">
+            <!-- =====================================================
+                 CONNECT YOUR FORM HERE
+                 Option A — Netlify Forms:
+                   add  name="website-review"  data-netlify="true"
+                   to the <form> below, and add a hidden input:
+                   <input type="hidden" name="form-name" value="website-review" />
+                 Option B — Formspree:
+                   set  action="https://formspree.io/f/yourFormID"  method="POST"
+                 The script.js validates first, then submits to Formspree.
+                 ===================================================== -->
+            <form id="reviewForm" action="https://formspree.io/f/xaqzkkor" method="POST" novalidate>
+              <p class="form-section-label">Required details</p>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="f-name">Name<span class="req">*</span></label>
+                  <input type="text" id="f-name" name="name" placeholder="Jane Smith" required />
+                  <span class="field__error">Please enter your name.</span>
+                </div>
+                <div class="field">
+                  <label for="f-business">Business name<span class="req">*</span></label>
+                  <input type="text" id="f-business" name="business" placeholder="Spice Grill" required />
+                  <span class="field__error">Please enter your business name.</span>
+                </div>
+                <div class="field">
+                  <label for="f-phone">Phone number<span class="req">*</span></label>
+                  <input type="tel" id="f-phone" name="phone" placeholder="07700 900000" required />
+                  <span class="field__error">Please enter a valid phone number.</span>
+                </div>
+                <div class="field">
+                  <label for="f-email">Email<span class="req">*</span></label>
+                  <input type="email" id="f-email" name="email" placeholder="you@business.co.uk" required />
+                  <span class="field__error">Please enter a valid email address.</span>
+                </div>
+                <div class="field">
+                  <label for="f-web">Website or social page<span class="req">*</span></label>
+                  <input type="text" id="f-web" name="website" placeholder="www.yoursite.co.uk, @yourpage or &quot;No current website&quot;" required />
+                  <span class="field__error">Please add a website or social page.</span>
+                </div>
+                <div class="field">
+                  <label for="f-type">Business type<span class="req">*</span></label>
+                  <select id="f-type" name="business_type" required>
+                    <option value="" disabled selected>Choose one…</option>
+                    <option>Restaurant</option>
+                    <option>Takeaway</option>
+                    <option>Café / Coffee shop</option>
+                    <option>Retail / Shop</option>
+                    <option>Salon / Barber</option>
+                    <option>Trades / Services</option>
+                    <option>Other local business</option>
+                  </select>
+                  <span class="field__error">Please choose a business type.</span>
+                </div>
+                <div class="field field--full">
+                  <label for="f-location">Location<span class="req">*</span></label>
+                  <input type="text" id="f-location" name="location" placeholder="Town, postcode" required />
+                  <span class="field__error">Please enter your location.</span>
+                </div>
+              </div>
+
+              <hr class="form-divider" />
+
+              <p class="form-section-label">Optional</p>
+              <div class="form-grid">
+                <div class="field field--full">
+                  <label for="f-improve">What would you like improved?</label>
+                  <textarea id="f-improve" name="improve" placeholder="e.g. the menu is hard to read on mobile, no order button…"></textarea>
+                </div>
+                <div class="field">
+                  <label for="f-havesite">Do you already have a website?</label>
+                  <select id="f-havesite" name="have_site">
+                    <option value="" disabled selected>Select…</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                    <option>Only social media</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-service">Which service are you interested in?</label>
+                  <select id="f-service" name="service">
+                    <option value="" disabled selected>Select…</option>
+                    <option>Essential Website</option>
+                    <option>Business Plus</option>
+                    <option>Custom Website</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+                <div class="field field--full">
+                  <label for="f-contact">Preferred contact method</label>
+                  <select id="f-contact" name="contact_method">
+                    <option value="" disabled selected>Select…</option>
+                    <option>Phone call</option>
+                    <option>WhatsApp</option>
+                    <option>Email</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn--primary btn--lg">Request My Free Website Review
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </button>
+                <a class="btn btn--whatsapp btn--lg" href="https://wa.me/447454733492" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 00-.7.3 2.8 2.8 0 00-.9 2.1 4.9 4.9 0 001 2.6 11 11 0 004.3 3.8c.6.3 1.1.4 1.5.5a3.5 3.5 0 001.6.1 2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+                  Message on WhatsApp
+                </a>
+              </div>
+              <p class="form-consent">By submitting, you agree we may contact you about your free website review. We don't share your details.</p>
+
+              <!-- Success message — only shown AFTER a successful submit -->
+              <div class="form-success" id="formSuccess" role="status">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
+                <span>Thanks — your free website review request has been sent. We'll be in touch shortly.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FINAL CTA
+         ======================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel grid-bg reveal">
+          <span class="badge" style="position:relative;z-index:1;">Ready to improve your website?</span>
+          <h2 style="position:relative;z-index:1;">Give your business an online presence you can be proud of.</h2>
+          <div class="actions" style="position:relative;z-index:1;">
+            <a class="btn btn--primary btn--lg" href="#review">Get a Free Website Review</a>
+            <a class="btn btn--whatsapp btn--lg" href="https://wa.me/447454733492" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 01-1.9-1.2 7.2 7.2 0 01-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 00-.7.3 2.8 2.8 0 00-.9 2.1 4.9 4.9 0 001 2.6 11 11 0 004.3 3.8c.6.3 1.1.4 1.5.5a3.5 3.5 0 001.6.1 2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.2-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+              Message on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="logo" href="#top" aria-label="Nexora Web home">
+            <svg class="logo__mark" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <rect x="0.5" y="0.5" width="29" height="29" rx="8" fill="#0d100e" stroke="rgba(255,255,255,0.12)"/>
+              <path d="M9 21V9l8 8.5V9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="20.5" cy="20.5" r="2" fill="#2ee57e"/>
+            </svg>
+            <span>Nexora Web<span class="dot">.</span></span>
+          </a>
+          <p>Modern websites for local restaurants, takeaways and small businesses.</p>
+        </div>
+
+        <div class="footer__col">
+          <h5>Explore</h5>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#review">Website Review</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col footer__contact">
+          <h5>Contact</h5>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:nexoraweb.uk@outlook.com">nexoraweb.uk@outlook.com</a></li>
+            <li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20z"/></svg><a href="https://wa.me/447454733492" target="_blank" rel="noopener">Message on WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__area">Serving businesses across Dewsbury, Batley, Heckmondwike, Huddersfield and surrounding areas. &nbsp;©&nbsp;<span id="year">2026</span> Nexora Web.</p>
+        <div class="footer__links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
