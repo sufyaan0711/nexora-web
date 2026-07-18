@@ -303,19 +303,8 @@ section { position: relative; }
   gap: var(--s-3) var(--s-6);
   padding-block: 11px;
 }
-.announcement__text {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 10px;
-  color: var(--ink-soft);
-  font-size: 0.86rem;
-  font-weight: 500;
-  text-align: center;
-  margin: 0;
-}
-.announcement__text .accent { font-weight: 700; }
 .announcement__tag {
+  order: 1;
   display: inline-flex;
   align-items: center;
   padding: 3px 10px;
@@ -328,8 +317,18 @@ section { position: relative; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.announcement__actions { display: flex; align-items: center; gap: var(--s-4); flex: none; }
+.announcement__text {
+  order: 2;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+.announcement__text .accent { font-weight: 700; }
+.announcement__sep { margin: 0 2px; color: var(--muted); }
 .announcement__cta {
+  order: 3;
   font-size: 0.84rem;
   font-weight: 700;
   color: var(--green);
@@ -339,6 +338,7 @@ section { position: relative; }
 }
 .announcement__cta:hover { color: var(--green-bright); border-color: var(--green-line); }
 .announcement__close {
+  order: 4;
   width: 26px; height: 26px;
   display: grid; place-items: center;
   border: 0;
@@ -1383,4 +1383,55 @@ body.nav-locked { position: fixed; left: 0; right: 0; overflow: hidden; }
     display: inline-flex;
     margin-bottom: var(--s-3);
   }
+}
+
+/* ---- Announcement bar: compact single-card mobile layout. Desktop
+   (>768px) keeps the original centred single-row appearance via the
+   `order` values set above; below 768px the same elements are
+   re-laid-out as a grid so the badge/close share a row, the offer
+   text reads as two left-aligned lines, and "Claim a Space" becomes
+   a full-width tappable button underneath. ---- */
+@media (max-width: 768px) {
+  .announcement__inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "badge close"
+      "text  text"
+      "cta   cta";
+    align-items: center;
+    gap: 8px 12px;
+    padding-block: 12px;
+    padding-inline: 16px;
+  }
+  .announcement__tag { grid-area: badge; justify-self: start; }
+  .announcement__close {
+    grid-area: close;
+    justify-self: end;
+    width: 44px;
+    height: 44px;
+  }
+  .announcement__text {
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    text-align: left;
+  }
+  .announcement__sep { display: none; }
+  .announcement__cta {
+    grid-area: cta;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: var(--r-md);
+    background: var(--green);
+    color: var(--green-ink);
+  }
+  .announcement__cta:hover { background: var(--green-bright); color: var(--green-ink); }
 }
